@@ -1,0 +1,53 @@
+<!-- views/pages/login.ejs -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <%- include ("../partials/head") %>
+</head>
+<body class="container">
+
+<header>
+    <%- include ("../partials/header") %>
+</header>
+
+<main>
+    <div class="jumbotron">
+        <form action="/user/login" method="post">          
+            <div class="container">
+                <table>
+                    <tr>
+                        <td><label for="username"><b>Username</b></label></td>
+                        <td><input type="text" placeholder="Enter Username" name="username" required></td>
+                    </tr>
+                    
+                    <tr>
+                        <td><label for="password"><b>Password</b></label></td>
+                        <td><input type="password" placeholder="Enter Password" name="password" required></td>
+
+                    </tr>
+                </table>
+                    
+                <button type="submit">Login</button>
+                <label>
+                    <input type="checkbox" checked="checked" name="remember"> Remember me
+                </label>
+
+                <a href="/register">Not registered?</a>
+                
+            </div>
+          
+            <div class="container" style="background-color:#f1f1f1">
+                <button type="button" class="cancelbtn">Cancel</button>
+                <span class="psw">Forgot <a href="#">password?</a></span>
+            </div>
+        </form>
+    </div>
+</main>
+
+<footer>
+    <%- include ("../partials/footer") %>
+</footer>
+
+</body>
+</html>
