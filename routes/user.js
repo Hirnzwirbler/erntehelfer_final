@@ -76,13 +76,16 @@ router.post(
         },
         (err, token) => {
           if (err) throw err;
-          res.render('pages/login');
+          res.status(200).json({
+            token
+          });
         }
       );
     } catch (err) {
       console.log(err.message);
       res.status(500).send("Error in Saving");
     }
+    res.redirect('pages/login');
   }
 );
 
@@ -147,6 +150,7 @@ router.post(
         message: "Server Error"
       });
     }
+    res.redirect('/');
   }
 );
 
