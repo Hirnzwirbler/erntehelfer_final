@@ -1,5 +1,6 @@
 const express = require("express");
 const bodyParser = require("body-parser");
+const cookieParser = require('cookie-parser');
 const user = require("./routes/user");
 const mainRouter = require("./routes/mainRouter");
 const InitiateMongoServer = require("./config/db");
@@ -8,7 +9,7 @@ const InitiateMongoServer = require("./config/db");
 InitiateMongoServer();
 
 const app = express();
-
+//app.use(cookieParser('very-secret'));
 //Views
 app.set('views', './views');
 app.set('view engine', 'ejs');
@@ -20,6 +21,7 @@ const PORT = process.env.PORT || 4000;
 // Middleware
 app.use(bodyParser.json());
 app.use(express.urlencoded({ extended: true }));
+
 //app.use(express.json());
 app.use(mainRouter);
 app.get("/", (req, res) => {

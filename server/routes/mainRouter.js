@@ -23,13 +23,14 @@ router.get('/login', function(req, res){
 })
 
 router.post('/login', function(req, res){
-  res.redirect('/');
+  res.redirect('../user/login');
 })
 
 
 // Profile
 router.get('/profile', function(req, res){
-    res.render('pages/profile');
+    res.redirect('../user/me')
+    //res.render('pages/profile');
 })
 
 // Campaigns
@@ -43,8 +44,7 @@ router.get('/register', function(req, res){
 })
 
 router.post('/register', function(req, res){
-    console.log("Registered");
-    res.redirect('/');
+    res.redirect('../user/signup');
   });
 
   module.exports = router;

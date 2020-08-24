@@ -64,7 +64,7 @@ router.post(
 
       const payload = {
         user: {
-          id: user.id
+          username: user.username
         }
       };
 
@@ -76,8 +76,11 @@ router.post(
         },
         (err, token) => {
           if (err) throw err;
-          res.status(200).json({
-            token
+          console.log(token);
+          res.json({
+            success: true,
+            message: 'Authentication successful!',
+            token: token
           });
         }
       );
@@ -85,7 +88,8 @@ router.post(
       console.log(err.message);
       res.status(500).send("Error in Saving");
     }
-    res.redirect('pages/login');
+    console.log('registered');
+    res.redirect('../views/pages/login');
   }
 );
 
@@ -127,7 +131,7 @@ router.post(
 
       const payload = {
         user: {
-          id: user.id
+          username: user.username
         }
       };
 
@@ -139,8 +143,11 @@ router.post(
         },
         (err, token) => {
           if (err) throw err;
-          res.status(200).json({
-            token
+          console.log(token);
+          res.json({
+            success: true,
+            message: 'Authentication successful!',
+            token: token
           });
         }
       );
